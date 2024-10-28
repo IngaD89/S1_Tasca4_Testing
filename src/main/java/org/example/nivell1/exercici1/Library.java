@@ -11,33 +11,38 @@ public class Library {
         this.books = new ArrayList<>();
     }
 
-    public void addBook(String title) {
-        if (!books.contains(title)) {
-            books.add(title);
-            Collections.sort(books);
+    public void addBook(String title) throws BookAlreadyExistsException {
+        if (books.contains(title)) {
+            throw new BookAlreadyExistsException();
         }
+        books.add(title);
+        Collections.sort(books);
     }
 
     public List<String> getAllBooks() {
         return this.books;
     }
 
-    public String getBookByPosition(int position) {
-        if (position >= 0 && position < books.size()) {
-            return books.get(position);
+    public String getBookByPosition(int position) throws BookPositionDoesNotExistsException {
+        if (position < 0 || position > books.size()) {
+            throw new BookPositionDoesNotExistsException();
         }
-        return null;
+            return books.get(position);
     }
 
     // verificar este metodo
-    public void addBookAtSpecificPosition(int position, String title) {
-        if (!books.contains(title) && position >= 0 && position <= books.size()) {
-            books.add(position, title);
+    public void addBookAtSpecificPosition(int position, String title) throws BookAlreadyExistsException {
+        if (books.contains(title) && !(position >= 0 && position <= books.size())) {
+            throw new BookAlreadyExistsException();
         }
+            books.add(position, title);
         Collections.sort(books);
     }
 
-    public void deleteBook(String title) {
+    public void deleteBook(String title) throws BookDoesNotExistsException {
+        if(!books.contains(title)){
+            throw new BookDoesNotExistsException();
+        }
         books.remove(title);
         Collections.sort(books);
     }

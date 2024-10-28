@@ -1,4 +1,4 @@
-package org.example.nivell1.excercici2;
+package org.example.nivell1.exercici2;
 
 public class Main {
 

@@ -22,13 +22,21 @@ public class EmployeeTest {
     @Test
     public void verifyEmployeeUnorderedList(){
         employees.add(hr);
+        employees.add(programmer);
+        employees.add(hr1);
+        employees.add(programmer2);
+
+        assertThat(employees).containsExactlyInAnyOrder(hr, hr1, programmer, programmer2);
+    }
+
+    @Test
+    public void verifyEmployeeOrderedList(){
+        employees.add(hr);
         employees.add(hr1);
         employees.add(programmer);
         employees.add(programmer2);
 
-        Collections.shuffle(employees);
-
-        assertThat(employees).contains(hr, hr1, programmer, programmer2);
+        assertThat(employees).containsExactly(hr, hr1, programmer, programmer2);
     }
 
     @Test

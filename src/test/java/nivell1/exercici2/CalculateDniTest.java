@@ -2,7 +2,7 @@ package nivell1.exercici2;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.example.nivell1.excercici2.CalculateDNI;
+import org.example.nivell1.exercici2.CalculateDNI;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
